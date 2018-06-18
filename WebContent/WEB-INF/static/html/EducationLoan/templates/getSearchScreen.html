@@ -1,0 +1,54 @@
+<section class="box">
+	<button class="button" ng-click="changeLang('en_US')">{{'English'
+		| translate}}</button>
+	<button class="button" ng-click="changeLang('hi_IN')">{{'Hindi'
+		| translate}}</button>
+	<button class="button" ng-click="changeLang('fr_CA')">{{'French'
+		| translate}}</button>
+	<br /> <br />
+	<h3>{{'SearchEducationLoan' | translate}}</h3>
+
+
+
+	<form method="get" ng-submit="viewData()"
+		name="searchLoanForm">
+
+		<div class="row uniform 50%">
+			<div class="6u 12u(mobilep)">
+				<input type="text" name="educationLoanId" id="educationLoanId"
+					ng-model="educationLoanId" value=""
+					placeholder="{{'Identificationcardnumber' | translate}}"
+					maxlength="8" ng-pattern="/EL-[0-9]{5}/g" />
+				<div
+					ng-show="searchLoanForm.educationLoanId.$invalid && !searchLoanForm.educationLoanId.$pristine"
+					class="danger">{{'LOANIDERROR' | translate}}</div>
+				<div class="danger" ng-show="educationLoanIdError">{{'ERRORLOANID'
+					| translate}}</div>
+			</div>
+			<div class="6u 12u(mobilep)">
+				<input type="text" name="accountNumber" id="accountNumber"
+					ng-model="accountNumber" value="" maxlength="16"
+					placeholder="{{'Loanaccountnumber' | translate}}"
+					ng-pattern="/^([0-9]{16})$/" />
+				<div
+					ng-show="searchLoanForm.accountNumber.$invalid && !searchLoanForm.accountNumber.$pristine"
+					class="danger">{{'Account_length_error' | translate}}</div>
+				<div class="danger" ng-show="error">{{'ERROR' | translate}}</div>
+			</div>
+		</div>
+
+		<div class="row uniform">
+			<div class="12u">
+				<ul class="actions">
+					<li><input type="submit" ng-disabled="searchLoanForm.$invalid"
+						value="{{'GetLoanDetails' | translate}}" /></li>
+					<li><input type="reset" value="{{'Reset' | translate}}"
+						class="alt" /></li>
+				</ul>
+			</div>
+		</div>
+
+	</form>
+
+
+</section>

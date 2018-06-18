@@ -1,0 +1,28 @@
+<section class="box">
+	<h3>{{'RESULT_PAGE_TITLE'| translate}}</h3>
+	 <input type="search" ng-model="searchObj.$"/>
+	<div class="table-wrapper" ng-app="myApp" ng-controller="ctrl">
+
+		<table>
+			<thead>
+				<tr>
+					<th ng-click="sort('educationLoanId')">{{'LoanId' | translate}}</th>
+					<th ng-click="sort('userVO.accountHolderName')">{{'Accountholdername' | translate}}</th>
+					<th ng-click="sort('loanAmount')">{{'LoanAmount' | translate}}</th>
+					<th ng-click="sort('courseName')">{{'CourseName' | translate}}</th>
+					<th ng-click="sort('fatherName')">{{'FatherName' | translate}}</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="educationLoanDetail in educationLoanDetails.data | orderBy: order | filter: searchObj">
+					<td>{{educationLoanDetail.educationLoanId}}</td>
+					<td>{{educationLoanDetail.userVO.accountHolderName}}</td>
+					<td>{{educationLoanDetail.loanAmount}}</td>
+					<td>{{educationLoanDetail.courseName}}</td>
+					<td>{{educationLoanDetail.fatherName}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</section>
